@@ -9,7 +9,7 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::get('/api/enquiries', function (Request $request) {
+Route::get('/enquiries', function (Request $request) {
     $enquiries = Enquiries::all();
 
     return response()
@@ -17,7 +17,7 @@ Route::get('/api/enquiries', function (Request $request) {
         ->header('Access-Control-Allow-Origin', 'https://nmims.asbtechnologies.com');
 });
 
-Route::get('/api/registrations', function (Request $request) {
+Route::get('/registrations', function (Request $request) {
     $registrations = Registrations::all();
 
     return response()
@@ -25,7 +25,7 @@ Route::get('/api/registrations', function (Request $request) {
         ->header('Access-Control-Allow-Origin', 'https://nmims.asbtechnologies.com');
 });
 
-Route::post('/api/enquiries', function (Request $request) {
+Route::post('/enquiries', function (Request $request) {
     // Validate inputs
     $validator = Validator::make($request->all(), [
         'firstName' => 'required|string|max:100',
@@ -56,7 +56,7 @@ Route::post('/api/enquiries', function (Request $request) {
 });
 
 
-Route::post('/api/registrations', function (Request $request) {
+Route::post('/registrations', function (Request $request) {
     // Validate inputs
     $validator = Validator::make($request->all(), [
         'name' => 'required|string|max:200',
